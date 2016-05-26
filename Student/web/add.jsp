@@ -9,15 +9,15 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Register page</title>
     </head>
     <body>
         <form action="StudentServlet" method="POST">
-            Id: <input type="text" name="id" placeholder="Enter Id"/><br>
-            Name : <input type="text" name="name" placeholder="Enter Name"/><br>
-            GPA : <input type="text" name="gpa" placeholder="Enter Name"/> <br>
+            Id: <input type="text" name="id" placeholder="Enter Id"/><br><br>
+            Name : <input type="text" name="name" placeholder="Enter Name"/><br><br>
+            GPA : <input type="text" name="gpa" placeholder="Enter Name"/> <br><br>
             Gender : <input type="radio" name="gender" value="male"/> Male
-            <input type="radio" name="gender" value="female"/>Female <br>
+            <input type="radio" name="gender" value="female"/>Female <br><br>
             <input type="reset" value="Reset" name="reset"/>
             <input type="submit" value="Cancel" name="cancelAdd"/>
             <input type="submit" value="Add" name="add"/>

@@ -13,7 +13,6 @@
     </head>
     <body>
         <form action="StudentServlet" method="GET">
-            <input type="text" name="id" value=${student.id}/>
             Name: ${student.name}<br>
             Gender:${student.gender}<br>
             Gender:${student.gender}<br>
