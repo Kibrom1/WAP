@@ -71,11 +71,18 @@ public class StudentServlet extends HttpServlet {
             if (request.getParameter("find") != null) {
                 int id = Integer.parseInt(request.getParameter("id"));
                 returnedStudent = findStudent(id);
-                request.setAttribute("student", returnedStudent);
-                request.getSession().setAttribute("studentDeleteId", returnedStudent.getId());
+                if (returnedStudent != null) {
+                    request.setAttribute("student", returnedStudent);
+                    request.getSession().setAttribute("studentDeleteId", returnedStudent.getId());
 
-                view = request.getRequestDispatcher("detail.jsp");
-                view.forward(request, response);
+                    view = request.getRequestDispatcher("detail.jsp");
+
+                    view.forward(request, response);
+                } else {
+                    request.setAttribute("notFound", "Student not found");
+                    view = request.getRequestDispatcher("search.jsp");
+                    view.forward(request, response);
+                }
             } else if (request.getParameter("cancelFind") != null) {
                 view = request.getRequestDispatcher("home.jsp");
                 view.forward(request, response);
@@ -83,9 +90,9 @@ public class StudentServlet extends HttpServlet {
                 view = request.getRequestDispatcher("home.jsp");
                 view.forward(request, response);
             } else if (request.getParameter("deleteStudent") != null) {
-               // int stdId = Integer.parseInt(request.getSession().getAttribute("studentDeleteId"));
+                // int stdId = Integer.parseInt(request.getSession().getAttribute("studentDeleteId"));
                 int stdId = Integer.parseInt(request.getSession().getAttribute("studentDeleteId").toString());
-               Student stdDelete = findStudent(stdId);
+                Student stdDelete = findStudent(stdId);
                 if (stdDelete != null) {
                     listStudent.remove(stdDelete);
                     request.getServletContext().setAttribute("listStudent", listStudent);

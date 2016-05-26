@@ -13,6 +13,7 @@
     </head>
     <body>
         <form action="StudentServlet" method="GET">
+            ${notFound}<br>
             Enter Id: <input type="text" name="id" placeholder="Enter Id"/><br>
             <input type="Submit" value="Cancel" name="cancelFind"/>
             <input type="Submit" value="Find" name="find"/>
